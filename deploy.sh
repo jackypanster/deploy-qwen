@@ -14,11 +14,12 @@ docker run -d \
   --served-model-name coder \
   --tensor-parallel-size 4 \
   --dtype half \
-  --max-model-len 32768 \
-  --max-num-batched-tokens 4096 \
-  --gpu-memory-utilization 0.93 \
+  --max-model-len 131072 \
+  --max-num-batched-tokens 2048 \
+  --gpu-memory-utilization 0.92 \
   --block-size 32 \
   --enable-chunked-prefill \
-  --swap-space 16 \
+  --swap-space 24 \
   --tokenizer-pool-size 56 \
-  --disable-custom-all-reduce
+  --disable-custom-all-reduce \
+  --rope-scaling '{"rope_type":"yarn","factor":4.0,"original_max_position_embeddings":32768}'
